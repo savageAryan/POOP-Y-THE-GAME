@@ -1,3 +1,162 @@
 [gd_scene format=3 uid="uid://bv7b2r7itm3e5"]
 
+[ext_resource type="Script" uid="uid://cvvmjf3avb4yj" path="res://scripts/world.gd" id="1_nnsk1"]
+[ext_resource type="Texture2D" uid="uid://myool1mjj78w" path="res://assets/poo 1.png" id="2_7r4gi"]
+[ext_resource type="Texture2D" uid="uid://ru16elda4lus" path="res://assets/poo 2.png" id="3_w7kh3"]
+[ext_resource type="Texture2D" uid="uid://b5jd1i63khsbg" path="res://assets/poo 3.png" id="4_e3hyu"]
+[ext_resource type="Texture2D" uid="uid://jjmt2l863eph" path="res://assets/poo 4.png" id="5_q5onr"]
+[ext_resource type="Texture2D" uid="uid://dd2y2ca7dso42" path="res://assets/poo 5.png" id="6_jhx03"]
+[ext_resource type="Texture2D" uid="uid://wiokdwisi3gc" path="res://assets/poo 6.png" id="7_o8fc1"]
+[ext_resource type="Texture2D" uid="uid://b14pb7ookib1g" path="res://assets/poo lite.png" id="8_xo05s"]
+[ext_resource type="Texture2D" uid="uid://d0hk0jg0fnnod" path="res://assets/poo.png" id="9_dss4m"]
+[ext_resource type="FontFile" uid="uid://c7q5s17lqn3cm" path="res://assets/LowresPixel-Regular.otf" id="10_w7kh3"]
+[ext_resource type="FontFile" uid="uid://b5ti1ydmw50ym" path="res://assets/CircusOrnate.ttf" id="11_e3hyu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3hyu"]
+bg_color = Color(0.186, 0.21639998, 0.3, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 5
+border_width_bottom = 4
+border_color = Color(0.28954127, 0.30764166, 0.35836205, 1)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5onr"]
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
 [node name="world" type="Node2D" unique_id=472958279]
+script = ExtResource("1_nnsk1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=508638244]
+modulate = Color(0.24300002, 0.2582, 0.3, 1)
+offset_right = 1151.0
+offset_bottom = 647.0
+
+[node name="Poo1" type="Sprite2D" parent="." unique_id=1747517647]
+position = Vector2(531, 562)
+rotation = -0.38063282
+scale = Vector2(3.03125, 3.03125)
+texture = ExtResource("2_7r4gi")
+
+[node name="Poo2" type="Sprite2D" parent="." unique_id=1702233205]
+position = Vector2(722.00006, 263.00003)
+rotation = 0.42530057
+scale = Vector2(1.5781256, 1.5781256)
+texture = ExtResource("3_w7kh3")
+
+[node name="Poo3" type="Sprite2D" parent="." unique_id=1002334688]
+position = Vector2(403.25, 66.24999)
+rotation = -0.54951763
+scale = Vector2(2.4921873, 2.4921873)
+texture = ExtResource("4_e3hyu")
+
+[node name="Poo4" type="Sprite2D" parent="." unique_id=304781039]
+position = Vector2(44.999977, 596)
+rotation = -0.79037595
+scale = Vector2(4.764606, 4.764606)
+texture = ExtResource("5_q5onr")
+
+[node name="Poo5" type="Sprite2D" parent="." unique_id=717301015]
+position = Vector2(337.99997, 371)
+scale = Vector2(2.015625, 2.015625)
+texture = ExtResource("6_jhx03")
+
+[node name="Poo6" type="Sprite2D" parent="." unique_id=330044600]
+position = Vector2(837, 399.00003)
+rotation = 2.2124896
+scale = Vector2(3.59375, 3.59375)
+texture = ExtResource("7_o8fc1")
+
+[node name="PooLite" type="Sprite2D" parent="." unique_id=1288983246]
+position = Vector2(168.99997, 311.99997)
+rotation = -0.20670792
+scale = Vector2(1.84375, 1.84375)
+texture = ExtResource("8_xo05s")
+
+[node name="Poo" type="Sprite2D" parent="." unique_id=1767579312]
+position = Vector2(911, 89.00006)
+rotation = 1.1876235
+scale = Vector2(4.125, 4.125)
+texture = ExtResource("9_dss4m")
+
+[node name="Button" type="Button" parent="." unique_id=59274248]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 306.0
+offset_top = 289.0
+offset_right = 834.0
+offset_bottom = 405.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("10_w7kh3")
+theme_override_font_sizes/font_size = 40
+text = "HERE WE GO AGAIN..."
+
+[node name="Button2" type="Button" parent="." unique_id=1216381576]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 306.0
+offset_top = 424.0
+offset_right = 834.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.88, 0.35199997, 0.35199997, 1)
+theme_override_fonts/font = ExtResource("10_w7kh3")
+theme_override_font_sizes/font_size = 26
+text = "NAHH!!! NOT NOW"
+
+[node name="Label" type="Label" parent="." unique_id=365753543]
+offset_left = 28.0
+offset_top = 186.0
+offset_right = 1132.0
+offset_bottom = 299.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.3059319, 0.505718, 0.52140987, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0)
+theme_override_constants/line_spacing = 7
+theme_override_constants/shadow_offset_x = 7
+theme_override_constants/shadow_offset_y = 12
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("11_e3hyu")
+theme_override_font_sizes/font_size = 54
+text = "MORNING ROUTINE"
+
+[node name="Button3" type="Button" parent="." unique_id=1046373185]
+offset_left = 940.0
+offset_top = 309.0
+offset_right = 1012.0
+offset_bottom = 381.0
+scale = Vector2(2.095, 2.095)
+theme_override_styles/normal = SubResource("StyleBoxFlat_e3hyu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q5onr")
+icon = ExtResource("9_dss4m")
+icon_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=404411479]
+offset_left = 942.0
+offset_top = 429.0
+offset_right = 1101.0
+offset_bottom = 452.0
+theme_override_colors/font_color = Color(0.75318235, 0.79799354, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_w7kh3")
+theme_override_font_sizes/font_size = 18
+text = "MORE ABOUT THEM!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

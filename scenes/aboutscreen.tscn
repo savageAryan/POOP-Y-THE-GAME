@@ -1,0 +1,224 @@
+[gd_scene format=3 uid="uid://bdk77rucw1vvc"]
+
+[ext_resource type="Texture2D" uid="uid://myool1mjj78w" path="res://assets/poo 1.png" id="1_c4bey"]
+[ext_resource type="Texture2D" uid="uid://d0hk0jg0fnnod" path="res://assets/poo.png" id="2_ctfnc"]
+[ext_resource type="Texture2D" uid="uid://b14pb7ookib1g" path="res://assets/poo lite.png" id="3_aau2n"]
+[ext_resource type="Texture2D" uid="uid://b5jd1i63khsbg" path="res://assets/poo 3.png" id="4_oomrt"]
+[ext_resource type="Texture2D" uid="uid://jjmt2l863eph" path="res://assets/poo 4.png" id="5_h3qku"]
+[ext_resource type="Texture2D" uid="uid://dd2y2ca7dso42" path="res://assets/poo 5.png" id="6_7hlco"]
+[ext_resource type="Texture2D" uid="uid://wiokdwisi3gc" path="res://assets/poo 6.png" id="7_yic53"]
+[ext_resource type="FontFile" uid="uid://b5ti1ydmw50ym" path="res://assets/CircusOrnate.ttf" id="8_rqofp"]
+[ext_resource type="FontFile" uid="uid://c7q5s17lqn3cm" path="res://assets/LowresPixel-Regular.otf" id="9_aau2n"]
+
+[node name="aboutscreen" type="Control" unique_id=38647386]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1243207692]
+modulate = Color(0.24300002, 0.2582, 0.3, 1)
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 647.0
+
+[node name="Poo" type="Sprite2D" parent="." unique_id=196439176]
+position = Vector2(97, 95)
+scale = Vector2(3, 3)
+texture = ExtResource("2_ctfnc")
+
+[node name="Poo1" type="Sprite2D" parent="." unique_id=1506655664]
+position = Vector2(98, 530)
+scale = Vector2(3, 3)
+texture = ExtResource("1_c4bey")
+
+[node name="PooLite" type="Sprite2D" parent="." unique_id=1098839825]
+position = Vector2(96, 312)
+scale = Vector2(3, 3)
+texture = ExtResource("3_aau2n")
+
+[node name="Poo3" type="Sprite2D" parent="." unique_id=537964324]
+position = Vector2(511, 93)
+scale = Vector2(3, 3)
+texture = ExtResource("4_oomrt")
+
+[node name="Poo4" type="Sprite2D" parent="." unique_id=913354909]
+position = Vector2(513, 318)
+scale = Vector2(3, 3)
+texture = ExtResource("5_h3qku")
+
+[node name="Poo5" type="Sprite2D" parent="." unique_id=817597350]
+position = Vector2(519, 508)
+scale = Vector2(3, 3)
+texture = ExtResource("6_7hlco")
+
+[node name="Poo6" type="Sprite2D" parent="." unique_id=1492316919]
+position = Vector2(983, 164.00002)
+scale = Vector2(5, 5)
+texture = ExtResource("7_yic53")
+
+[node name="Label" type="Label" parent="." unique_id=1534741203]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 33.0
+offset_right = 370.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("8_rqofp")
+theme_override_font_sizes/font_size = 22
+text = "MR. POO"
+
+[node name="Label2" type="Label" parent="." unique_id=597513298]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 65.0
+offset_right = 370.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("9_aau2n")
+theme_override_font_sizes/font_size = 22
+text = "YOUR FRIENDLY
+ EASY GOING
+COMPANION"
+
+[node name="Label7" type="Label" parent="." unique_id=1593783994]
+layout_mode = 0
+offset_left = 545.0
+offset_top = 33.0
+offset_right = 958.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("8_rqofp")
+theme_override_font_sizes/font_size = 22
+text = "MR. BLOODY HELL"
+
+[node name="Label8" type="Label" parent="." unique_id=540808719]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 65.0
+offset_right = 784.0
+offset_bottom = 140.0
+theme_override_fonts/font = ExtResource("9_aau2n")
+theme_override_font_sizes/font_size = 22
+text = "OHH HELL NAH!! 
+GO SEE YOUR DOC
+ASAP....!"
+
+[node name="Label9" type="Label" parent="." unique_id=1753996522]
+layout_mode = 0
+offset_left = 578.0
+offset_top = 277.0
+offset_right = 832.0
+offset_bottom = 307.0
+theme_override_fonts/font = ExtResource("8_rqofp")
+theme_override_font_sizes/font_size = 22
+text = "MR. ROCKY"
+
+[node name="Label10" type="Label" parent="." unique_id=1440526820]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 309.0
+offset_right = 784.0
+offset_bottom = 384.0
+theme_override_fonts/font = ExtResource("9_aau2n")
+theme_override_font_sizes/font_size = 22
+text = "LORD GIVE YOU 
+STRENGTH..
+POV - constipation"
+
+[node name="Label13" type="Label" parent="." unique_id=962554192]
+layout_mode = 0
+offset_left = 865.0
+offset_top = 267.0
+offset_right = 1119.0
+offset_bottom = 297.0
+theme_override_fonts/font = ExtResource("8_rqofp")
+theme_override_font_sizes/font_size = 22
+text = "MRS. PAM"
+
+[node name="Label14" type="Label" parent="." unique_id=877417280]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 299.0
+offset_right = 1080.0
+offset_bottom = 374.0
+theme_override_fonts/font = ExtResource("9_aau2n")
+theme_override_font_sizes/font_size = 22
+text = "STAY AWAY WEIRDO!!
+
+POV - ---------------------"
+
+[node name="Label11" type="Label" parent="." unique_id=642988697]
+layout_mode = 0
+offset_left = 596.0
+offset_top = 488.0
+offset_right = 850.0
+offset_bottom = 518.0
+theme_override_fonts/font = ExtResource("8_rqofp")
+theme_override_font_sizes/font_size = 22
+text = "SLIMMY"
+
+[node name="Label12" type="Label" parent="." unique_id=466394678]
+layout_mode = 0
+offset_left = 614.0
+offset_top = 520.0
+offset_right = 807.0
+offset_bottom = 595.0
+theme_override_fonts/font = ExtResource("9_aau2n")
+theme_override_font_sizes/font_size = 22
+text = "YEHH! 
+STAY INSIDE.
+OR  WEAR  DIPERS"
+
+[node name="Label3" type="Label" parent="." unique_id=1420709110]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 267.0
+offset_right = 449.0
+offset_bottom = 297.0
+theme_override_fonts/font = ExtResource("8_rqofp")
+theme_override_font_sizes/font_size = 22
+text = " COOL SHITTY"
+
+[node name="Label4" type="Label" parent="." unique_id=142989161]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 299.0
+offset_right = 388.0
+offset_bottom = 374.0
+theme_override_fonts/font = ExtResource("9_aau2n")
+theme_override_font_sizes/font_size = 22
+text = "A SAVIOUR! PROTECTS
+AND REMINDS US TO 
+EAT HEALTHY"
+
+[node name="Label5" type="Label" parent="." unique_id=1382652843]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 479.0
+offset_right = 349.0
+offset_bottom = 509.0
+theme_override_fonts/font = ExtResource("8_rqofp")
+theme_override_font_sizes/font_size = 22
+text = " BOSSY.B"
+
+[node name="Label6" type="Label" parent="." unique_id=1508729897]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 511.0
+offset_right = 370.0
+offset_bottom = 586.0
+theme_override_fonts/font = ExtResource("9_aau2n")
+theme_override_font_sizes/font_size = 22
+text = "A GENTLE REMINDER
+TO EAT HEALTHY "
+
+[node name="Button" type="Button" parent="." unique_id=1184282666]
+layout_mode = 0
+offset_left = 880.0
+offset_top = 500.0
+offset_right = 1094.0
+offset_bottom = 578.0
+theme_override_colors/font_color = Color(0.9778058, 0.4159008, 0.25966868, 1)
+theme_override_fonts/font = ExtResource("9_aau2n")
+theme_override_font_sizes/font_size = 25
+text = "SEEN IT ALL.."

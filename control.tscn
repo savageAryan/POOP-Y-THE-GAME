@@ -1,0 +1,207 @@
+[gd_scene format=3 uid="uid://cq8i5373jm428"]
+
+[ext_resource type="Texture2D" uid="uid://bciudhf785oud" path="res://assets/seat.webp" id="1_0fbet"]
+[ext_resource type="Texture2D" uid="uid://bxbrcc73h0o1s" path="res://assets/update.png" id="2_62e2m"]
+[ext_resource type="FontFile" uid="uid://c7q5s17lqn3cm" path="res://assets/LowresPixel-Regular.otf" id="3_qtu10"]
+
+[sub_resource type="GDScript" id="GDScript_uchyk"]
+script/source = "extends Control
+@onready var grid_container: GridContainer = $GridContainer
+
+var SLOT = preload(\"uid://de7l2v662ji7u\")
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	for i in range(16):
+		var slot = SLOT.instantiate()
+		slot.row = i / 4
+		slot.col = i % 4
+		grid_container.add_child(slot)
+		slot.level = -1
+		slot.set_level()
+		slot.slot_clicked.connect(_on_slot_clicked)
+	spawn_random()
+	spawn_random()
+func _on_slot_clicked(slot):
+	print(\"clicked: \", slot)
+	if selected_Slot == null:
+		selected_Slot = slot
+		slot.selected()
+		print(\"selected\")
+		return
+		
+	if selected_Slot == slot:
+		selected_Slot = null
+		slot.deselected()
+		return
+	try_merge(selected_Slot, slot)
+	selected_Slot.deselected()
+	selected_Slot = null
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+var selected_Slot = null
+func try_merge(a, b):
+	if not are_adjacent(a,b):
+		return
+	if a.level == -1:
+		return
+	if b.level == -1:
+		b.level = a.level
+		a.level = -1
+		a.set_level()
+		b.set_level()
+		spawn_random()
+		return
+	if a.level == b.level:
+		b.level += 1
+		a.level = -1
+		a.set_level()
+		b.set_level()
+		spawn_random()
+func _process(delta: float) -> void:
+	pass
+func spawn_random():
+	var empty_Slots = []
+	for slot in grid_container.get_children():
+		if slot.level == -1:
+			empty_Slots.append(slot)
+			
+	if empty_Slots.is_empty():
+		return
+		
+	var slot = empty_Slots.pick_random()
+	slot.level = get_randomlevel()
+	slot.set_level()
+func get_randomlevel():
+	var roll = randi_range(1,100)
+	if roll <= 50:
+		return 0
+	if roll <= 75:
+		return 1
+	if roll <= 88:
+		return 2
+	if roll <= 95:
+		return 3
+	if roll <= 50:
+		return 
+	if roll <= 98:
+		return 4
+	else:
+		return 0
+func are_adjacent(a,b):
+	var dy = abs(a.row - b.row)
+	var dx = abs(a.col - b.col)
+	
+	return dx <= 1 and dy <= 1 and not(dx == 0 and dy == 0)
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://control.tscn\")
+"
+
+[sub_resource type="GDScript" id="GDScript_0fbet"]
+script/source = "extends GridContainer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62e2m"]
+bg_color = Color(0.74254674, 0.7289047, 0.75287956, 0.7921569)
+border_width_left = 26
+border_width_top = 22
+border_width_right = 22
+border_width_bottom = 18
+corner_radius_top_left = 158
+corner_radius_top_right = 144
+corner_radius_bottom_right = 141
+corner_radius_bottom_left = 144
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4bf"]
+bg_color = Color(0.35906926, 0.35906908, 0.35906896, 1)
+border_width_left = 30
+border_width_top = 30
+border_width_right = 30
+border_width_bottom = 30
+corner_radius_top_left = 143
+corner_radius_top_right = 143
+corner_radius_bottom_right = 143
+corner_radius_bottom_left = 145
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtu10"]
+bg_color = Color(0.45685214, 0.45685226, 0.45685208, 1)
+border_width_left = 18
+border_width_top = 18
+border_width_right = 18
+border_width_bottom = 18
+corner_radius_top_left = 146
+corner_radius_top_right = 148
+corner_radius_bottom_right = 145
+corner_radius_bottom_left = 146
+
+[node name="Control" type="Control" unique_id=1237937426]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_uchyk")
+
+[node name="Seat" type="Sprite2D" parent="." unique_id=621111714]
+position = Vector2(225.00002, 4)
+scale = Vector2(1.99, 1.7045)
+texture = ExtResource("1_0fbet")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1846830980]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+script = SubResource("GDScript_0fbet")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1829719964]
+position = Vector2(225, 209.2)
+zoom = Vector2(1.5, 1.5)
+
+[node name="Button" type="Button" parent="." unique_id=1637329061]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 15.0
+offset_right = 1136.6758
+offset_bottom = 728.51355
+scale = Vector2(0.185, 0.185)
+theme_override_styles/normal = SubResource("StyleBoxFlat_62e2m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ee4bf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qtu10")
+icon = ExtResource("2_62e2m")
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=924455846]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 149.0
+offset_right = 812.0
+offset_bottom = 287.0
+scale = Vector2(0.46, 0.46)
+theme_override_colors/font_shadow_color = Color(0.89492244, 0.89492244, 0.8949224, 0)
+theme_override_colors/font_outline_color = Color(0.2399205, 0.37692326, 0.301955, 1)
+theme_override_constants/line_spacing = 6
+theme_override_constants/paragraph_spacing = -6
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_qtu10")
+theme_override_font_sizes/font_size = 40
+text = "   YOU CAN FLUSH!!
+IF YOUR MISTAKES 
+      HAUNT YOU"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

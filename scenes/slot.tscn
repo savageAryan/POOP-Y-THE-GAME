@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://de7l2v662ji7u"]
+
+[ext_resource type="Script" uid="uid://bo4acwpr0i5qk" path="res://scripts/slot.gd" id="1_4v6ba"]
+
+[node name="slot" type="Panel" unique_id=648844436]
+modulate = Color(1, 1, 1, 0.87058824)
+custom_minimum_size = Vector2(100, 100)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_4v6ba")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1321685765]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+stretch_mode = 5
