@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bciudhf785oud" path="res://assets/seat.webp" id="1_0fbet"]
 [ext_resource type="Texture2D" uid="uid://bxbrcc73h0o1s" path="res://assets/update.png" id="2_62e2m"]
 [ext_resource type="FontFile" uid="uid://c7q5s17lqn3cm" path="res://assets/LowresPixel-Regular.otf" id="3_qtu10"]
+[ext_resource type="Texture2D" uid="uid://wiokdwisi3gc" path="res://assets/poo 6.png" id="4_ee4bf"]
+[ext_resource type="FontFile" uid="uid://b5ti1ydmw50ym" path="res://assets/CircusOrnate.ttf" id="5_fj5cn"]
+[ext_resource type="AudioStream" uid="uid://dfmgg24611hfn" path="res://assets/floraphonic-you-win-sequence-2-183949.mp3" id="5_kbped"]
 
 [sub_resource type="GDScript" id="GDScript_uchyk"]
 script/source = "extends Control
@@ -56,6 +59,8 @@ func try_merge(a, b):
 		a.level = -1
 		a.set_level()
 		b.set_level()
+		if b.level == 7:
+			win()
 		spawn_random()
 func _process(delta: float) -> void:
 	pass
@@ -93,9 +98,23 @@ func are_adjacent(a,b):
 	
 	return dx <= 1 and dy <= 1 and not(dx == 0 and dy == 0)
 
+@onready var refresh: AudioStreamPlayer = $refresh
 
 func _on_button_pressed() -> void:
+	Audio.refresh.play()
+	
 	get_tree().change_scene_to_file(\"res://control.tscn\")
+
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var label_3: Label = $Label3
+
+func _on_button_2_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://scenes/world.tscn\")
+func win():
+	label_3.visible = true
+	audio_stream_player.play()
+	await audio_stream_player.finished
+	get_tree().change_scene_to_file(\"res://scenes/win.tscn\")
 "
 
 [sub_resource type="GDScript" id="GDScript_0fbet"]
@@ -113,7 +132,7 @@ func _process(delta: float) -> void:
 "
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62e2m"]
-bg_color = Color(0.74254674, 0.7289047, 0.75287956, 0.7921569)
+bg_color = Color(0.66310245, 0.6493447, 0.6722529, 1)
 border_width_left = 26
 border_width_top = 22
 border_width_right = 22
@@ -145,6 +164,91 @@ corner_radius_top_right = 148
 corner_radius_bottom_right = 145
 corner_radius_bottom_left = 146
 
+[sub_resource type="Animation" id="Animation_kbped"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-176, 217)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fj5cn"]
+resource_name = "new_animation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.34, 1.34), Vector2(0.555, 0.555)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-154.66, 217), Vector2(-109.135, 217)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.03333334, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.4627451)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iy58a"]
+_data = {
+&"RESET": SubResource("Animation_kbped"),
+&"new_animation": SubResource("Animation_fj5cn")
+}
+
 [node name="Control" type="Control" unique_id=1237937426]
 layout_mode = 3
 anchors_preset = 15
@@ -158,6 +262,13 @@ script = SubResource("GDScript_uchyk")
 position = Vector2(225.00002, 4)
 scale = Vector2(1.99, 1.7045)
 texture = ExtResource("1_0fbet")
+
+[node name="Panel" type="Panel" parent="." unique_id=1597168442]
+layout_mode = 0
+offset_left = -152.0
+offset_top = 129.0
+offset_right = -12.0
+offset_bottom = 269.0
 
 [node name="GridContainer" type="GridContainer" parent="." unique_id=1846830980]
 layout_mode = 1
@@ -186,6 +297,21 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_qtu10")
 icon = ExtResource("2_62e2m")
 icon_alignment = 1
 
+[node name="Button2" type="Button" parent="." unique_id=211657331]
+layout_mode = 0
+offset_left = -147.00002
+offset_top = 14.000008
+offset_right = 528.6758
+offset_bottom = 170.75677
+scale = Vector2(0.185, 0.185)
+theme_override_fonts/font = ExtResource("3_qtu10")
+theme_override_font_sizes/font_size = 90
+theme_override_styles/normal = SubResource("StyleBoxFlat_62e2m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ee4bf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qtu10")
+text = "I AM DONE!"
+icon_alignment = 1
+
 [node name="Label" type="Label" parent="." unique_id=924455846]
 layout_mode = 0
 offset_left = 450.0
@@ -204,4 +330,44 @@ text = "   YOU CAN FLUSH!!
 IF YOUR MISTAKES 
       HAUNT YOU"
 
+[node name="Poo6" type="Sprite2D" parent="." unique_id=226533231]
+position = Vector2(-82, 201)
+scale = Vector2(1.7890624, 1.7890624)
+texture = ExtResource("4_ee4bf")
+
+[node name="Label2" type="Label" parent="." unique_id=767581325]
+layout_mode = 0
+offset_left = -176.0
+offset_top = 217.0
+offset_right = -69.0
+offset_bottom = 240.0
+theme_override_colors/font_color = Color(0.4170698, 0.0016103587, 0.6518031, 1)
+theme_override_colors/font_outline_color = Color(0.53, 0.3127, 0.45394498, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_qtu10")
+theme_override_font_sizes/font_size = 21
+text = "REACH HER!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1239520039]
+libraries/ = SubResource("AnimationLibrary_iy58a")
+autoplay = &"new_animation"
+
+[node name="Label3" type="Label" parent="." unique_id=503067283]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 192.0
+offset_right = 337.0
+offset_bottom = 220.0
+theme_override_colors/font_color = Color(0.74, 0.407, 0.61789995, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("5_fj5cn")
+theme_override_font_sizes/font_size = 31
+text = "YOU GOT HER"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1915899623]
+stream = ExtResource("5_kbped")
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

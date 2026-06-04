@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://8j7l2mrwnsxc"]
+
+[ext_resource type="AudioStream" uid="uid://b7t4vqcuu8hx6" path="res://assets/freesound_community-bird-toy-song-27497.mp3" id="1_qc0l7"]
+[ext_resource type="Script" uid="uid://cu38kom13ji3r" path="res://audio.gd" id="1_ybffx"]
+[ext_resource type="AudioStream" uid="uid://brd6eqxdt3l4c" path="res://assets/freesound_community-automatic-urinal-flush-43816.mp3" id="2_q45hi"]
+
+[node name="audio" type="Control" unique_id=373011402]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ybffx")
+
+[node name="mainbgm" type="AudioStreamPlayer" parent="." unique_id=814950393]
+stream = ExtResource("1_qc0l7")
+autoplay = true
+bus = &"bgm"
+playback_type = 1
+
+[node name="refresh" type="AudioStreamPlayer" parent="." unique_id=1365123321]
+stream = ExtResource("2_q45hi")

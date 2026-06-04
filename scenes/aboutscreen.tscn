@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bdk77rucw1vvc"]
 
 [ext_resource type="Texture2D" uid="uid://myool1mjj78w" path="res://assets/poo 1.png" id="1_c4bey"]
+[ext_resource type="Script" uid="uid://b8bhin4ak36lf" path="res://scripts/aboutscreen.gd" id="1_oomrt"]
 [ext_resource type="Texture2D" uid="uid://d0hk0jg0fnnod" path="res://assets/poo.png" id="2_ctfnc"]
 [ext_resource type="Texture2D" uid="uid://b14pb7ookib1g" path="res://assets/poo lite.png" id="3_aau2n"]
 [ext_resource type="Texture2D" uid="uid://b5jd1i63khsbg" path="res://assets/poo 3.png" id="4_oomrt"]
@@ -17,12 +18,69 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_oomrt")
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1243207692]
 modulate = Color(0.24300002, 0.2582, 0.3, 1)
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 647.0
+
+[node name="Button2" type="Button" parent="." unique_id=144981036]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 29.0
+offset_right = 178.0
+offset_bottom = 167.0
+mouse_default_cursor_shape = 2
+
+[node name="Button3" type="Button" parent="." unique_id=320833640]
+layout_mode = 0
+offset_left = 868.0
+offset_top = 64.0
+offset_right = 1101.0
+offset_bottom = 258.0
+mouse_default_cursor_shape = 2
+
+[node name="Button4" type="Button" parent="." unique_id=1465551338]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 465.0
+offset_right = 604.73914
+offset_bottom = 615.0
+mouse_default_cursor_shape = 2
+
+[node name="Button5" type="Button" parent="." unique_id=1885379248]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 462.0
+offset_right = 178.0
+offset_bottom = 600.0
+mouse_default_cursor_shape = 2
+
+[node name="Button6" type="Button" parent="." unique_id=623022555]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 253.0
+offset_right = 593.0
+offset_bottom = 391.0
+mouse_default_cursor_shape = 2
+
+[node name="Button7" type="Button" parent="." unique_id=1776101993]
+layout_mode = 0
+offset_left = 436.0
+offset_top = 29.0
+offset_right = 594.0
+offset_bottom = 167.0
+mouse_default_cursor_shape = 2
+
+[node name="Button8" type="Button" parent="." unique_id=1043733167]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 243.0
+offset_right = 176.0
+offset_bottom = 381.0
+mouse_default_cursor_shape = 2
 
 [node name="Poo" type="Sprite2D" parent="." unique_id=196439176]
 position = Vector2(97, 95)
@@ -222,3 +280,14 @@ theme_override_colors/font_color = Color(0.9778058, 0.4159008, 0.25966868, 1)
 theme_override_fonts/font = ExtResource("9_aau2n")
 theme_override_font_sizes/font_size = 25
 text = "SEEN IT ALL.."
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2097019578]
+
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -11,9 +11,21 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://control.tscn")
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var audio_stream_player_2: AudioStreamPlayer = $AudioStreamPlayer2
 
+func _on_button_pressed() -> void:
+	audio_stream_player.play()
+	await get_tree().create_timer(2).timeout
+	
+	get_tree().change_scene_to_file("res://control.tscn")
+	
 
 func _on_button_2_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_button_3_pressed() -> void:
+	audio_stream_player_2.play()
+	await audio_stream_player_2.finished
+	get_tree().change_scene_to_file("res://scenes/aboutscreen.tscn")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://27x446v2mjxq"
+path="res://.godot/imported/apebble-fart-5-228245 (1).mp3-a0bc391fdc0e4c66d940c078c26e7f28.mp3str"
+
+[deps]
+
+source_file="res://assets/apebble-fart-5-228245 (1).mp3"
+dest_files=["res://.godot/imported/apebble-fart-5-228245 (1).mp3-a0bc391fdc0e4c66d940c078c26e7f28.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=100.0
+bpm=120.05
+beat_count=3
+bar_beats=26

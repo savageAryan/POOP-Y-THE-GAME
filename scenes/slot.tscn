@@ -7,6 +7,7 @@ modulate = Color(1, 1, 1, 0.87058824)
 custom_minimum_size = Vector2(100, 100)
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_default_cursor_shape = 2
 script = ExtResource("1_4v6ba")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1321685765]

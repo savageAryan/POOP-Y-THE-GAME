@@ -15,6 +15,18 @@ run/main_scene="uid://bv7b2r7itm3e5"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://defs343rfkbja"
+
+[autoload]
+
+Audio="*uid://8j7l2mrwnsxc"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")

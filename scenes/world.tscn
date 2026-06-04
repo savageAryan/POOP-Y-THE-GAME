@@ -9,14 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://wiokdwisi3gc" path="res://assets/poo 6.png" id="7_o8fc1"]
 [ext_resource type="Texture2D" uid="uid://b14pb7ookib1g" path="res://assets/poo lite.png" id="8_xo05s"]
 [ext_resource type="Texture2D" uid="uid://d0hk0jg0fnnod" path="res://assets/poo.png" id="9_dss4m"]
+[ext_resource type="AudioStream" uid="uid://dbvm7sbu3omxp" path="res://assets/alex_jauk-toilet-flush-362456.mp3" id="10_q5onr"]
 [ext_resource type="FontFile" uid="uid://c7q5s17lqn3cm" path="res://assets/LowresPixel-Regular.otf" id="10_w7kh3"]
 [ext_resource type="FontFile" uid="uid://b5ti1ydmw50ym" path="res://assets/CircusOrnate.ttf" id="11_e3hyu"]
+[ext_resource type="AudioStream" uid="uid://27x446v2mjxq" path="res://assets/apebble-fart-5-228245 (1).mp3" id="11_q5onr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3hyu"]
 bg_color = Color(0.186, 0.21639998, 0.3, 1)
 border_width_left = 4
 border_width_top = 4
-border_width_right = 5
+border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.28954127, 0.30764166, 0.35836205, 1)
 border_blend = true
@@ -26,10 +28,85 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5onr"]
+bg_color = Color(0.2646064, 0.25583842, 0.38435614, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhx03"]
+bg_color = Color(0.1715, 0.26669997, 0.35, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.29495898, 0.4927262, 0.65831035, 1)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="Animation" id="Animation_e3hyu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(942, 429)]
+}
+
+[sub_resource type="Animation" id="Animation_q5onr"]
+resource_name = "textanim"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.69, 1.69)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(942, 429), Vector2(898.44, 429)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jhx03"]
+_data = {
+&"RESET": SubResource("Animation_e3hyu"),
+&"textanim": SubResource("Animation_q5onr")
+}
 
 [node name="world" type="Node2D" unique_id=472958279]
 script = ExtResource("1_nnsk1")
@@ -85,6 +162,12 @@ position = Vector2(911, 89.00006)
 rotation = 1.1876235
 scale = Vector2(4.125, 4.125)
 texture = ExtResource("9_dss4m")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1712293315]
+stream = ExtResource("10_q5onr")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=259453530]
+stream = ExtResource("11_q5onr")
 
 [node name="Button" type="Button" parent="." unique_id=59274248]
 anchors_preset = 8
@@ -144,13 +227,14 @@ offset_bottom = 381.0
 scale = Vector2(2.095, 2.095)
 theme_override_styles/normal = SubResource("StyleBoxFlat_e3hyu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_q5onr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jhx03")
 icon = ExtResource("9_dss4m")
 icon_alignment = 1
 
 [node name="Label2" type="Label" parent="." unique_id=404411479]
 offset_left = 942.0
 offset_top = 429.0
-offset_right = 1101.0
+offset_right = 1101.0032
 offset_bottom = 452.0
 theme_override_colors/font_color = Color(0.75318235, 0.79799354, 1, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
@@ -158,5 +242,10 @@ theme_override_fonts/font = ExtResource("10_w7kh3")
 theme_override_font_sizes/font_size = 18
 text = "MORE ABOUT THEM!"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=576838594]
+libraries/ = SubResource("AnimationLibrary_jhx03")
+autoplay = &"textanim"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
